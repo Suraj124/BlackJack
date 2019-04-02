@@ -52,6 +52,31 @@ class Hand():
         if self.value>21 and self.aces>0:
             self.value-=10
             self.aces-=1
+
+class Chips():
+    def __init__(self,total=100):
+        self.total=total
+        self.bet=0
+    def win_bet(self):
+        self.total+=self.bet
+    def lose_bet(self):
+        self.total-=self.bet
+
+def take_bet(chips):
+    while True:
+        try:
+            chips.bet=int(input('How many chips would you like to bet? '))
+        except:
+            print('Sorry, a bet must be a integer')
+        else:
+            if chips.bet>chips.total:
+                print(f'You don\'t have enough chips. Currently you have {self.total}')
+            else:
+                break
+def hit(deck,hand):
+
+    hand.add_cards(deck.deal())
+    hand.adjust_for_aces()
 d=Deck()
 d.shuffle()
 pulled_card=d.deal()
