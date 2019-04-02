@@ -3,6 +3,7 @@ import random
 suits=('Hearts','Spades','Diamonds','Clubs')
 ranks=('Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','jack','King','Queen','Ace')
 values={'Two':2,'Three':3,'Four':4,'Five':5,'Six':6,'Seven':7,'Eight':8,'Nine':9,'Ten':10,'Jack':10,'King':10,'Queen':10,'Ace':11}
+playing=True
 
 class Card():
 
@@ -77,6 +78,8 @@ def hit(deck,hand):
 
     hand.add_cards(deck.deal())
     hand.adjust_for_aces()
+
+
 d=Deck()
 d.shuffle()
 pulled_card=d.deal()
