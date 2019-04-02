@@ -35,6 +35,27 @@ class Deck():
     def __len__(self):
         return len(self.deck)
 
-obj=Deck()
-print(obj)
-print(len(obj))
+class Hand():
+    
+    def __init__(self):
+        self.cards=[]
+        self.value=0
+        self.aces=0
+    def add_cards(self,card):
+        self.cards.append(card)
+        self.value+=values[card.rank]
+
+        if card.rank=='Ace':
+            self.aces+=1
+    
+    def adjust_for_aces(self):
+        if self.value>21 and self.aces>0:
+            self.value-=10
+            self.aces-=1
+d=Deck()
+d.shuffle()
+pulled_card=d.deal()
+print(pulled_card)
+p1=Hand()
+p1.add_cards(pulled_card)
+print(p1.value)
